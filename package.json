@@ -2,7 +2,7 @@
   "name": "metalsmith-google-analytics",
   "version": "0.0.1",
   "description": "a metalsmith plugin to add google analytics to your html site",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register",
     "prepublish": "gulp build",

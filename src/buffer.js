@@ -11,7 +11,7 @@ export const buffersLength = function (...args) {
 // dosn't work if the firs char of str is multiple times in the query
 export const bufferFindStringIndex = (buffer, str) => {
     var query       = new Buffer(str)
-    var queryBuffer = new Buffer(query.length)
+    var queryBuffer = new Buffer(query.byteLength).fill(0)
     var count       = 0
     var index       = -1
 
@@ -21,20 +21,19 @@ export const bufferFindStringIndex = (buffer, str) => {
     const matchQuery         = () => queryBuffer.equals(query)
     const resetQueryBuffer   = () => {
         count  = 0
-        queryBuffer = new Buffer(query.length)
+        queryBuffer = new Buffer(query.byteLength).fill(0)
     }
-    const calcIndex          = i => i - query.length
+    const calcIndex          = i => i - query.length + 1
 
     for (var [i, c] of buffer.entries()) {
       // buffering
       if(isFirstQueryLetter(c)) {
-        queryBuffer.writeUInt32LE(c, 0, true)
-      } else if(shouldBuffer(c)) {
+        queryBuffer.writeUInt32LE(c, 0)
         ++count
+      } else if(shouldBuffer(c)) {
         queryBuffer.writeUInt32LE(c, count, true)
+        ++count
       }
-
-      // querying
       if(isQueryBufferFull()) {
         if(matchQuery()) {
           index = calcIndex(i)

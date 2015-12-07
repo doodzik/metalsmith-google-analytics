@@ -18,8 +18,8 @@ describe('buffer.js', () =>  {
 
   describe('#bufferFindStringIndex()',  () =>  {
     it('finds index',  () =>  {
-      const index = bufferFindStringIndex(new Buffer('hallo welt'), 'o we')
-      assert.equal(index, 4)
+      const index = bufferFindStringIndex(new Buffer('0123456789</head> yyyyy'), '</head>')
+      assert.equal(index, 10)
     })
 
     it('dosnt find index',  () =>  {

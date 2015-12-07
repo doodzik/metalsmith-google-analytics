@@ -1,0 +1,49 @@
+{
+  "name": "metalsmith-google-analytics",
+  "version": "0.0.1",
+  "description": "a metalsmith plugin to add google analytics to your html site",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register",
+    "prepublish": "gulp build",
+    "postpublish": "gulp tag"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doodzik/metalsmith-google-analytics.git"
+  },
+  "keywords": [
+    "google",
+    "analytics",
+    "metalsmith"
+  ],
+  "author": "Frederik Dudzik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/doodzik/metalsmith-google-analytics/issues"
+  },
+  "homepage": "https://github.com/doodzik/metalsmith-google-analytics#readme",
+  "dependencies": {
+    "metalsmith-each": "^0.1.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4",
+    "babel-core": "^6.1.4",
+    "babel-plugin-syntax-export-extensions": "^6.1.18",
+    "babel-preset-es2015": "^6.1.4",
+    "del": "^2.1.0",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.0",
+    "gulp-exec": "^2.1.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.7"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "syntax-export-extensions"
+    ]
+  }
+}
